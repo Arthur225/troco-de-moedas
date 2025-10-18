@@ -1,3 +1,3 @@
-Implementação do algoritmo guloso para solucionar problema do Troco das Moedas
+Implementing a greedy algorithm to solve the Coin Change problem
 
-Trabalho da disciplina de Análise e Projeto de Algoritmos
+Assignment for the Algorithm Analysis and Design course
