@@ -54,7 +54,6 @@ vector<int> greedyChange(int amount, const vector<int>& coins) {
             amount -= coin;
             result.push_back(coin);
         }
-        
     }
     if(amount > 0) {
         cout << "Cannot provide exact change for the given amount with the provided coins using the greedy algorithm." << endl;
@@ -81,7 +80,6 @@ void printChange(const vector<int>& change) {
         }
     }
     cout << currentCoinValue << " x " << currentCoinCount << endl;
-
 }
 
 int main() {
