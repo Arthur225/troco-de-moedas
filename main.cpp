@@ -18,6 +18,17 @@ void inversedBubbleSort(vector<int>& arr) {
     } while (swapped);
 }
 
+int getAmount(bool testing = true) {
+    if(testing) {
+        return 230;
+    }
+
+    cout << "Enter the amount to change (0 to quit): ";
+    int amount;
+    cin >> amount;
+    return amount;
+}
+
 vector<int> getCoins(bool testing = true) {
     if(testing) {
         return {100, 50, 25, 10, 5, 1};
@@ -36,17 +47,6 @@ vector<int> getCoins(bool testing = true) {
     inversedBubbleSort(coins);
 
     return coins;
-}
-
-int getAmount(bool testing = true) {
-    if(testing) {
-        return 230;
-    }
-
-    cout << "Enter the amount to change (0 to quit): ";
-    int amount;
-    cin >> amount;
-    return amount;
 }
 
 vector<int> greedyChange(int amount, const vector<int>& coins) {
