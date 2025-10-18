@@ -80,6 +80,18 @@ void printChange(const vector<int>& change) {
         }
     }
     cout << currentCoinValue << " x " << currentCoinCount << endl;
+    cout << "Total coins given: " << change.size() << endl;
+}
+
+int coinChange(vector<int>& coins, int amount) {
+        vector<long>minimumCoins(amount+1, INT_MAX);
+        minimumCoins[0] = 0;
+        for(auto coin: coins){
+            for(int j = coin; j<=amount; j++){
+                minimumCoins[j] = min(minimumCoins[j], 1 + minimumCoins[j - coin]);
+            }
+        }
+        return minimumCoins[amount] == INT_MAX ? -1 : minimumCoins[amount];
 }
 
 int main() {
@@ -87,14 +99,21 @@ int main() {
 
     do {
         int amount = getAmount(testing);
-        vector<int> coins = getCoins(testing);
         if(amount <= 0) {
             break;
         }
+        vector<int> coins = getCoins(testing);
         vector<int> change = greedyChange(amount, coins);
+        
+        int minCoins = coinChange(coins, amount);
+        cout << endl;
+        cout << "Minimum number of coins needed (dynamic programming): " << minCoins << endl;
+        
         if(change.empty()) {
             continue;
         }
+
+        cout << endl;
         printChange(change);
         cout << endl;
 
