@@ -88,7 +88,7 @@ int coinChange(vector<int>& coins, int amount) {
         minimumCoins[0] = 0;
         for(auto coin: coins){
             for(int j = coin; j<=amount; j++){
-                minimumCoins[j] = min(minimumCoins[j], 1 + minimumCoins[j - coin]);
+                if(minimumCoins[j - coin] != INT_MAX) minimumCoins[j] = min(minimumCoins[j], 1 + minimumCoins[j - coin]);
             }
         }
         return minimumCoins[amount] == INT_MAX ? -1 : minimumCoins[amount];
